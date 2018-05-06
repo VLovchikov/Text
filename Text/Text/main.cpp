@@ -5,7 +5,14 @@
 
 int main()
 {
-	string t = "121212121212";
+	string t = "Part 1.";
+	Text l;
+	l.addDown("Opredelenie.");
+	l.back();
+	l.addNext("Part 2.");
+	l.addDown("Opredelenie 2.");
+	string g = l.printall();
+	cout << g << endl;
 	system("pause");
 	return 0;
 }

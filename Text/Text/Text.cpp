@@ -6,7 +6,9 @@ Text::Text()
 {
 	h = new Node;
 	curr = h;
-	h->str = "Part 1";
+	h->down = NULL;
+	h->next = NULL;
+	h->str = "Part 1.";
 }
 
 void Text::down()
@@ -34,7 +36,7 @@ void Text::addNext(string s)
 	Node *t = new Node;
 	t->str = s;
 	t->next = curr->next;
-	curr->down = t;
+	curr->next = t;
 	next();
 }
 
@@ -65,8 +67,30 @@ void Text::deletelurr()
 	deleteTree(t);
 }
 
-void Text::print(Node *t)
+void Text::edit( string t)
 {
+	curr->str = t;
+}
+
+string Text::print(Node * t)
+{
+	if (t == NULL) return "";
+	string s = t->str;
+	s += print(t->down);
+	s += print(t->next);
+	return s;
+}
+
+
+string& Text::printcurr()
+{
+	return curr->str;
+}
+
+string Text::printall()
+{
+	string s=print(h);
+	return s;
 }
 
 
