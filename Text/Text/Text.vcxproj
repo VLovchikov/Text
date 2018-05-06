@@ -114,11 +114,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Stack.cpp" />
-    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="TText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stack.h" />
-    <ClInclude Include="Text.h" />
+    <ClInclude Include="TText.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

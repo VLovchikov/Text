@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 #include <Stack.h>
-#include <Text.h>
+#include <TText.h>
 
 int main()
 {
 	string t = "Part 1.";
-	Text l;
+	TText l;
 	l.addDown("Opredelenie.");
 	l.back();
 	l.addNext("Part 2.");

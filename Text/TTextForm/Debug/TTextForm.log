@@ -1,0 +1,7 @@
+﻿  MyForm.cpp
+  MyForm.obj : /DEBUG:FASTLINK не поддерживается, если присутствует управляемый код; выполняется перезапуск компоновки с /DEBUG:FULL
+MyForm.obj : error LNK2028: ёё√ыър эр эхЁрчЁх°хээє■ ыхъёхьє (0A000584) "public: __thiscall TText::TText(void)" (??0TText@@$$FQAE@XZ) т ЇєэъЎшш "void __clrcall `dynamic initializer for 't''(void)" (???__Et@@YMXXZ@?A0x5d416d52@@$$FYMXXZ)
+MyForm.obj : error LNK2028: ёё√ыър эр эхЁрчЁх°хээє■ ыхъёхьє (0A000585) "public: __thiscall TText::~TText(void)" (??1TText@@$$FQAE@XZ) т ЇєэъЎшш "void __clrcall `dynamic atexit destructor for 't''(void)" (???__Ft@@YMXXZ@?A0x5d416d52@@$$FYMXXZ)
+MyForm.obj : error LNK2019: ёё√ыър эр эхЁрчЁх°хээ√щ тэх°эшщ ёшьтюы "public: __thiscall TText::TText(void)" (??0TText@@$$FQAE@XZ) т ЇєэъЎшш "void __clrcall `dynamic initializer for 't''(void)" (???__Et@@YMXXZ@?A0x5d416d52@@$$FYMXXZ)
+MyForm.obj : error LNK2019: ёё√ыър эр эхЁрчЁх°хээ√щ тэх°эшщ ёшьтюы "public: __thiscall TText::~TText(void)" (??1TText@@$$FQAE@XZ) т ЇєэъЎшш "void __clrcall `dynamic atexit destructor for 't''(void)" (???__Ft@@YMXXZ@?A0x5d416d52@@$$FYMXXZ)
+A:\╧ЁюхъЄ√\Text\Text\Debug\TTextForm.exe : fatal error LNK1120: эхЁрчЁх°хээ√ї тэх°эшї ¤ыхьхэЄют: 4
