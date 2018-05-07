@@ -44,6 +44,8 @@ void TText::addDown(string s)
 {
 	Node *t = new Node;
 	t->str = s;
+	t->str = t->t + t->str;
+	t->t += t->t;
 	t->next = curr->down;
 	curr->down = t;
 	down();
@@ -70,6 +72,16 @@ void TText::deletelurr()
 void TText::edit( string t)
 {
 	curr->str = t;
+}
+
+Node * TText::gethead()
+{
+	return h;
+}
+
+Node* TText::getcurrent()
+{
+	return curr;
 }
 
 string TText::print(Node * t)

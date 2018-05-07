@@ -19,6 +19,8 @@ public:
 	void deleteTree(Node *t);
 	void deletelurr();
 	void edit(string t);
+	Node* gethead();
+	Node* getcurrent();
 	string print(Node *t);
 	string& printcurr();
 	string printall();

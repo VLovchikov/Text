@@ -1,12 +1,13 @@
 #pragma once
 #include "TText.h"
+#include "TText.cpp"
 #include "Stack.h"
+#include "Stack.cpp"
 std::string current;
 std::string edit;
 std::string add;
 TText t;
 namespace TTextForm {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -106,6 +107,7 @@ namespace TTextForm {
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Next";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button2
 			// 
@@ -115,6 +117,7 @@ namespace TTextForm {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Down";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button3
 			// 
@@ -124,6 +127,7 @@ namespace TTextForm {
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Back";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// label2
 			// 
@@ -203,6 +207,7 @@ namespace TTextForm {
 			this->button4->TabIndex = 10;
 			this->button4->Text = L"Изменить";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// label7
 			// 
@@ -244,6 +249,7 @@ namespace TTextForm {
 			this->button6->TabIndex = 14;
 			this->button6->Text = L"Down";
 			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
 			// 
 			// MyForm
 			// 
@@ -274,6 +280,52 @@ namespace TTextForm {
 #pragma endregion
 		
 	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+		int len = textBox2->Text->Length;
+		add.resize(len);
+		for (int i = 0; i < len; i++)
+		{
+			add[i]=textBox2->Text[i];
+		}
+		t.addNext(add);
+		add = "";
 	}
+private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+		int len = textBox2->Text->Length;
+		add.resize(len);
+		for (int i = 0; i < len; i++)
+		{
+			add[i] = textBox2->Text[i];
+		}
+		t.addDown(add);
+		add = "";
+	}
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+		int len = textBox1->Text->Length;
+		edit.resize(len);
+		for (int i = 0; i < len; i++)
+		{
+			edit[i] = textBox1->Text[i];
+		}
+		t.edit(edit);
+		edit = "";
+	}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	t.next();
+	current = t.printcurr();
+	label5->Text = gcnew String(current.c_str());
+	current = "";
+}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	t.down();
+	current = t.printcurr();
+	label5->Text = gcnew String(current.c_str());
+	current = "";
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	t.back();
+	current = t.printcurr();
+	label5->Text = gcnew String(current.c_str());
+	current = "";
+}
 };
 }
