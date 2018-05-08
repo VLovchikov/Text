@@ -8,7 +8,8 @@ TText::TText()
 	curr = h;
 	h->down = NULL;
 	h->next = NULL;
-	h->str = "";
+	h->str = "Start Text";
+	h->lvl = 1;
 }
 
 void TText::down()
@@ -36,6 +37,7 @@ void TText::addNext(string s)
 	Node *t = new Node;
 	t->str = s;
 	t->next = curr->next;
+	t->lvl = curr->lvl;
 	curr->next = t;
 	next();
 }
@@ -44,9 +46,8 @@ void TText::addDown(string s)
 {
 	Node *t = new Node;
 	t->str = s;
-	t->str = t->t + t->str;
-	t->t += t->t;
 	t->next = curr->down;
+	t->lvl = curr->lvl + 1;
 	curr->down = t;
 	down();
 }
@@ -87,7 +88,13 @@ Node* TText::getcurrent()
 string TText::print(Node * t)
 {
 	if (t == NULL) return "";
-	string s = t->str;
+	string s="";
+	for (int i = 0; i < t->lvl; i++)
+	{
+		s = " " + s;
+	}
+	s +=t->str;
+	s +='\n';
 	s += print(t->down);
 	s += print(t->next);
 	return s;

@@ -6,6 +6,7 @@
 std::string current;
 std::string edit;
 std::string add;
+std::string all;
 TText t;
 namespace TTextForm {
 	using namespace System;
@@ -56,6 +57,10 @@ namespace TTextForm {
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Button^  button5;
 	private: System::Windows::Forms::Button^  button6;
+	private: System::Windows::Forms::Label^  label8;
+
+	private: System::Windows::Forms::Button^  button8;
+	private: System::Windows::Forms::Label^  label9;
 
 	private:
 		/// <summary>
@@ -85,6 +90,9 @@ namespace TTextForm {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -183,7 +191,7 @@ namespace TTextForm {
 			this->label6->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label6->Location = System::Drawing::Point(296, 165);
+			this->label6->Location = System::Drawing::Point(296, 123);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(132, 19);
 			this->label6->TabIndex = 8;
@@ -193,15 +201,15 @@ namespace TTextForm {
 			// 
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox1->Location = System::Drawing::Point(296, 187);
+			this->textBox1->Location = System::Drawing::Point(296, 145);
 			this->textBox1->MinimumSize = System::Drawing::Size(150, 60);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(150, 26);
+			this->textBox1->Size = System::Drawing::Size(150, 60);
 			this->textBox1->TabIndex = 9;
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(331, 250);
+			this->button4->Location = System::Drawing::Point(334, 211);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(75, 23);
 			this->button4->TabIndex = 10;
@@ -251,11 +259,47 @@ namespace TTextForm {
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label8->Location = System::Drawing::Point(112, 86);
+			this->label8->MinimumSize = System::Drawing::Size(50, 20);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(50, 20);
+			this->label8->TabIndex = 15;
+			// 
+			// button8
+			// 
+			this->button8->Location = System::Drawing::Point(376, 251);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(70, 23);
+			this->button8->TabIndex = 17;
+			this->button8->Text = L"Раздел";
+			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label9->Location = System::Drawing::Point(296, 255);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(74, 19);
+			this->label9->TabIndex = 18;
+			this->label9->Text = L"Удалить:";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(663, 442);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->button8);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->textBox2);
@@ -287,6 +331,9 @@ namespace TTextForm {
 			add[i]=textBox2->Text[i];
 		}
 		t.addNext(add);
+		all = t.printall();
+		label3->Text = gcnew String(all.c_str());
+		label5->Text = gcnew String(add.c_str());
 		add = "";
 	}
 private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -297,7 +344,11 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 			add[i] = textBox2->Text[i];
 		}
 		t.addDown(add);
+		all = t.printall();
+		label3->Text = gcnew String(all.c_str());
+		label5->Text = gcnew String(add.c_str());
 		add = "";
+		all = "";
 	}
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 		int len = textBox1->Text->Length;
@@ -307,25 +358,77 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 			edit[i] = textBox1->Text[i];
 		}
 		t.edit(edit);
+		all = t.printall();
+		current = t.printcurr();
+		label5->Text = gcnew String(current.c_str());
+		label3->Text = gcnew String(all.c_str());
+		all = "";
 		edit = "";
+		current = "";
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	t.next();
+	try
+	{
+		t.next();
+	}
+	catch (...)
+	{
+		label8->Text = "Error Navigation!";
+		return;
+	}
+	label8->Text = "";
 	current = t.printcurr();
 	label5->Text = gcnew String(current.c_str());
 	current = "";
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-	t.down();
+	try
+	{
+		t.down();
+	}
+	catch (...)
+	{
+		label8->Text = "Error Navigation!";
+		return;
+	}
+	label8->Text = "";
 	current = t.printcurr();
 	label5->Text = gcnew String(current.c_str());
 	current = "";
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-	t.back();
+	try
+	{
+		t.back();
+	}
+	catch (...)
+	{
+		label8->Text = "Error Navigation!";
+		return;
+	}
+	label8->Text = "";
 	current = t.printcurr();
 	label5->Text = gcnew String(current.c_str());
 	current = "";
+}
+
+private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
+	try 
+	{
+		t.deletelurr();
+	}
+	catch (...)
+	{
+		label8->Text = "Error! It is Head!";
+		return;
+	}
+	label8->Text = "";
+	current = t.printcurr();
+	label5->Text = gcnew String(current.c_str());
+	current = "";
+	all = t.printall();
+	label3->Text = gcnew String(all.c_str());
+	all = "";
 }
 };
 }

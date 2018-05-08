@@ -7,13 +7,13 @@ using namespace std;
 
 struct Node
 {
-	string t;
 	string str;
 	Node *next;
 	Node *down;
+	int lvl;
 	Node()
 	{
-		t = "   ";
+		int lvl=1;
 		str = "";
 		down = next = NULL;
 	}

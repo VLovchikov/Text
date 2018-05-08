@@ -1,7 +1,7 @@
 ﻿  MyForm.cpp
-a:\проекты\text\text\ttextform\MyForm.h(287): warning C4244: =: преобразование "wchar_t" в "char", возможна потеря данных
-a:\проекты\text\text\ttextform\MyForm.h(297): warning C4244: =: преобразование "wchar_t" в "char", возможна потеря данных
-a:\проекты\text\text\ttextform\MyForm.h(307): warning C4244: =: преобразование "wchar_t" в "char", возможна потеря данных
+a:\проекты\text\text\ttextform\MyForm.h(331): warning C4244: =: преобразование "wchar_t" в "char", возможна потеря данных
+a:\проекты\text\text\ttextform\MyForm.h(344): warning C4244: =: преобразование "wchar_t" в "char", возможна потеря данных
+a:\проекты\text\text\ttextform\MyForm.h(358): warning C4244: =: преобразование "wchar_t" в "char", возможна потеря данных
   MyForm.obj : /DEBUG:FASTLINK не поддерживается, если присутствует управляемый код; выполняется перезапуск компоновки с /DEBUG:FULL
   TTextForm.vcxproj -> A:\Проекты\Text\Text\Debug\TTextForm.exe
   TTextForm.vcxproj -> A:\Проекты\Text\Text\Debug\TTextForm.pdb (Partial PDB)
